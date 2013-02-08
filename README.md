@@ -51,7 +51,6 @@ and
 
 ```
     networksetup -setsocksfirewallproxystate "$INTERFACE" off
-    networksetup -setsocksfirewallproxystate "$INTERFACE" off
 ```
 
 

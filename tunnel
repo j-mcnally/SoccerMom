@@ -7,6 +7,9 @@ else
   echo "Must run as root. Try 'sudo ./tunnel'"
   exit 1;
 fi
+
+
+
 EXISTS=`ps aux | grep -i "ssh.*kohTunnel" | grep -v "grep" | awk "{print $2}"`
 if [ "$EXISTS" ]
 then
@@ -14,6 +17,7 @@ then
   exit 1;
 fi
 
+exec 2>/dev/null 
 
 #clean the config
 sudo echo "restoring config"
@@ -29,7 +33,7 @@ PID=`ps aux | grep -i "ssh.*kohTunnel" | grep -v "grep" | awk '{print $2}'`
 kill $PID
 killall -9 dnsmasq
 echo "Starting tunnel..."
-sudo -u $SUDO_USER ssh -v -N -F $HOME/.tunnel/tunnel.ssh kohTunnel &
+sudo -u $SUDO_USER ssh -N -F $HOME/.tunnel/tunnel.ssh kohTunnel &
 
 echo "config default ssh"
 

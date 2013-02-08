@@ -15,8 +15,18 @@ echo "bouncing mDNSResponder"
  launchctl unload -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
  launchctl load -w /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
 
-echo "starting DNSmasq.... press Ctrl+C to exit"
- sudo dnsmasq -d -H $HOME/.tunnel/tunnel.hosts
+echo "Starting dnsMasq"
+/usr/local/sbin/dnsmasq -d -H $HOME/.tunnel/tunnel.hosts > /dev/null 2>&1 &
+
+echo "Press any key to collapse tunnel."
+
+read -n1 -s
+
+PID=`ps aux | grep -i "dnsmasq.*tunnel" | grep -v "grep" | awk '{print $2}'`
+kill $PID
+
+
+
 echo ""
 echo "reseting DNS servers"
 

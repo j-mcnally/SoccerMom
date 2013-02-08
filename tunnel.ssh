@@ -1,0 +1,5 @@
+Host kohTunnel
+  HostName tunnelbox.host
+  Port 6966
+  User root
+  DynamicForward localhost:5067

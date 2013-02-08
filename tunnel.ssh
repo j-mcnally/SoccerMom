@@ -1,5 +1,13 @@
 Host kohTunnel
-  HostName tunnelbox.host
+  HostName [put your jumpoff server here]
   Port 6966
   User root
   DynamicForward localhost:5067
+  ForwardAgent yes
+  TCPKeepAlive yes
+  ForwardX11 yes
+  LocalForward 4242 usher.kohsrv.net:22
+
+
+Host [put your private servers here]
+  ProxyCommand /usr/bin/nc -x localhost:5067 %h %p

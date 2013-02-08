@@ -24,10 +24,17 @@ We use an old linksys router running DD-WRT and it seems to work fine.
 
 
 
-Usage
-=====
+Installation
+============
 
 Clone the repo to ~/.tunnel
+
+run ./install.sh
+
+
+
+Configuration
+=============
 
 Edit tunnel.ssh to reflect your tunneling needs, the script sets up a SOCKS server.
 You could also program a bunch of LocalForwards and add Host lines to make those seamless
@@ -52,6 +59,14 @@ and
 ```
     networksetup -setsocksfirewallproxystate "$INTERFACE" off
 ```
+
+Usage
+=====
+
+If everything is configured properly and you've run ./install.sh
+
+you can launch this sweet beast by typing `tunnel`
+
 
 
 Contributing

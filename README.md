@@ -9,7 +9,20 @@ Requirements
 ============
 
 OSX 10.5+
+
 Brew
+
+Tunnel Setup
+============
+
+Basically your SSH jump off box.
+A server inside your trusted network with sshd running, 
+you will need access and you will want to add your SSH key to authorized_keys
+
+We use an old linksys router running DD-WRT and it seems to work fine.
+
+
+
 
 Usage
 =====
